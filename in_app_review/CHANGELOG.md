@@ -1,3 +1,9 @@
+# [2.0.13]
+
+- Migrate the Android build to AGP 9's built-in Kotlin support, dropping the
+  `kotlin-android` plugin. Bumps the minimum supported Flutter version to
+  3.44.0.
+
 # [2.0.12]
 
 - Fix an Android NullPointerException that sometimes occurred when apps were backgrounded.
