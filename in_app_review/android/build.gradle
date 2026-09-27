@@ -2,15 +2,15 @@ group = "dev.britannio.in_app_review"
 version = "1.0-SNAPSHOT"
 
 buildscript {
-    ext.kotlin_version = "2.1.0"
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:8.7.3")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+        // AGP 9+ compiles Kotlin itself, so no separate Kotlin Gradle plugin
+        // classpath dependency is needed here.
+        classpath("com.android.tools.build:gradle:9.4.0")
     }
 }
 
@@ -22,7 +22,6 @@ allprojects {
 }
 
 apply plugin: "com.android.library"
-apply plugin: "kotlin-android"
 
 android {
     namespace = "dev.britannio.in_app_review"
@@ -32,10 +31,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11
     }
 
     sourceSets {
